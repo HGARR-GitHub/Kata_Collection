@@ -24,3 +24,6 @@ function inviteMoreWomen(L) {
   const result = L.reduce((acc,curVal)=>acc+curVal)
   return (result > 0 ? true : false)
 }
+
+inviteMoreWomen ([-1,1,1,1,-1]) // result True
+inviteMoreWomen ([1,1,-1,-1]) // result false
