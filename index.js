@@ -15,3 +15,12 @@ function wave(str){
 
 wave("heri") //result ["Heri", "hEri", "heRi", "herI"]
 wave(" gap ") //result [" Gap ", " gAp ", " gaP"]
+
+//Integer Array of -1 and 1. (-1 standing for a woman and 1 a man).
+//Check if more woman should be invited. 
+//Array min length 2 and Max is 50
+function inviteMoreWomen(L) {
+  //coding and coding..
+  const result = L.reduce((acc,curVal)=>acc+curVal)
+  return (result > 0 ? true : false)
+}
