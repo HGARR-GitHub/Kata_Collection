@@ -27,3 +27,16 @@ function inviteMoreWomen(L) {
 
 inviteMoreWomen ([-1,1,1,1,-1]) // result True
 inviteMoreWomen ([1,1,-1,-1]) // result false
+
+
+//String Ends With
+//Complete the solution so that it returns true if the first argument(string) 
+//passed in ends with the 2nd argument (also a string).
+function solution(str, ending){
+  // TODO: complete
+  return (str.substring(str.length-ending.length)==ending)
+}
+
+//Examples:
+solution('abc', 'bc') // returns true
+solution('abc', 'd') // returns false
