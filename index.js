@@ -40,3 +40,68 @@ function solution(str, ending){
 //Examples:
 solution('abc', 'bc') // returns true
 solution('abc', 'd') // returns false
+
+//Consonant Value
+//Given a lowercase string that has alphabetic characters only and no spaces, return the highest
+//value of consonant substrings. Consonants are any letters of the alpahabet except "aeiou".
+//We shall assign the following values: a = 1, b = 2, c = 3, .... z = 26.
+//For example, for the word "zodiacs", let's cross out the vowels. We get: "z o d ia cs"
+//- The consonant substrings are: "z", "d" and "cs" and the values are z = 26, d = 4 and 
+//cs = 3 + 19 = 22. The highest is 26.
+//solve("zodiacs") = 26
+//
+//For the word "strength", solve("strength") = 57
+//-- The consonant substrings are: "str" and "ngth" with values "str" = 19 + 20 + 18 = 57 and 
+//"ngth" = 14 + 7 + 20 + 8 = 49. The highest is 57.
+
+function solve(s) {
+  //extract all the consonants substrings and put them in an array
+  let consArr = []
+  let strVowels = "aeiou"
+  let strCons = ""
+  let maxValue = 0
+  let value = 0
+  
+  for (let i=0;i<(s.length+1);i++){
+    //check one pos passed the last char
+    //so that if the string ends with a consonant
+    //the string of cons will also be pushed in the array.
+    if (strVowels.search(s[i])==-1){
+      //add consonant to string
+      strCons = strCons + s[i]
+    } else if (strCons != ""){
+      //if it is a vowel then add the string of cons
+      //in the array. But don't add if the cons string
+      //is still empty for example this can happen 
+      //when the first chars are vowels
+      consArr.push(strCons)
+      strCons=""
+    }
+  }
+  
+  // You can do this also with split. But if the string starts or ends with a vowel you will
+  //have empty substrings in your array. You can delete them or leave them. They don't have 
+  //a higher value as a consonant string.
+  // consArr = s.split(/[aeiou]/)
+  
+  console.log(consArr)
+
+  //loop through the array and count the value of the 
+  //individual substrings using the ASCII value.
+  //letter a has ascii value 97. So substract 96 to get
+  //a = 1
+  consArr.forEach((currString) => {
+    value = 0
+    for (let i=0;i<currString.length;i++){
+      value = value + (currString.charCodeAt(i) - 96) 
+    }
+    if (value > maxValue) maxValue = value  
+  }) 
+  return maxValue 
+}
+
+solve("zodiac") // result = 26
+solve("strength") //result 57
+
+//other solutions:
+const solve = s => s.split(/[aeiou]+/).reduce((s,n)=> Math.max(s, n.split('').reduce((a,b)=> a + b.charCodeAt(0)-96,0 )), 0);
