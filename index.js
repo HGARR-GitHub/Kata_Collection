@@ -130,4 +130,8 @@ function solve(s){
     return s
   }
 }
+// Faster solution, that skips the problem with the length method:
+//replaces the Capitals with '' (=same as removes) and you keep only the lowercase string characters.
+//if this string is smaller then halve the size then you know there are less lower cases and you can make everything Upper.
+const solve = s => s.replace(/[A-Z]/g,'').length < s.length/2 ? s.toUpperCase() : s.toLowerCase()
 
