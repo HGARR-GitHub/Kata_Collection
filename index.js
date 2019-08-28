@@ -105,3 +105,29 @@ solve("strength") //result 57
 
 //other solutions:
 const solve = s => s.split(/[aeiou]+/).reduce((s,n)=> Math.max(s, n.split('').reduce((a,b)=> a + b.charCodeAt(0)-96,0 )), 0);
+
+
+//Fix String Case
+/* In this Kata, you will be given a string that may have mixed uppercase and lowercase letters and your 
+task is to convert that string to either lowercase only or uppercase only based on:
+1. make as few changes as possible.
+2. if the string contains equal number of uppercase and lowercase letters, convert the string to lowercase.
+solve("coDe") = "code". Lowercase characters > uppercase. Change only the "D" to lowercase.
+solve("CODe") = "CODE". Uppercase characters > lowecase. Change only the "e" to uppercase.
+solve("coDE") = "code". Upper == lowercase. Change all to lowercase.
+*/
+function solve(s){
+  if (s.match(/[A-Z]/g)!== null){
+    //you need to have a Uppercase letter if not the length method will throw an error.
+    if (s.match(/[A-Z]/g).length> Math.floor(s.length/2)){
+      //to Uppercase
+      return s.replace(/[a-z]/g,match => match.toUpperCase())
+    } else {
+      //to Lowercase
+      return s.replace(/[A-Z]/g,match => match.toLowerCase())
+    }
+  } else {
+    return s
+  }
+}
+
