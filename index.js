@@ -1,4 +1,4 @@
-//Mexican Wave
+//KATA: Mexican Wave
 //In this simple Kata your task is to create a function that turns a string into a Mexican Wave. 
 //You will be passed a string and you must return that string in an array where an uppercase letter
 //is a person standing up.
@@ -16,7 +16,7 @@ function wave(str){
 wave("heri") //result ["Heri", "hEri", "heRi", "herI"]
 wave(" gap ") //result [" Gap ", " gAp ", " gaP"]
 
-//Integer Array of -1 and 1. (-1 standing for a woman and 1 a man).
+//KATA: Integer Array of -1 and 1. (-1 standing for a woman and 1 a man).
 //Check if more woman should be invited. 
 //Array min length 2 and Max is 50
 function inviteMoreWomen(L) {
@@ -29,7 +29,7 @@ inviteMoreWomen ([-1,1,1,1,-1]) // result True
 inviteMoreWomen ([1,1,-1,-1]) // result false
 
 
-//String Ends With
+//KATA: String Ends With
 //Complete the solution so that it returns true if the first argument(string) 
 //passed in ends with the 2nd argument (also a string).
 function solution(str, ending){
@@ -41,7 +41,7 @@ function solution(str, ending){
 solution('abc', 'bc') // returns true
 solution('abc', 'd') // returns false
 
-//Consonant Value
+//KATA: Consonant Value
 //Given a lowercase string that has alphabetic characters only and no spaces, return the highest
 //value of consonant substrings. Consonants are any letters of the alpahabet except "aeiou".
 //We shall assign the following values: a = 1, b = 2, c = 3, .... z = 26.
@@ -107,7 +107,7 @@ solve("strength") //result 57
 const solve = s => s.split(/[aeiou]+/).reduce((s,n)=> Math.max(s, n.split('').reduce((a,b)=> a + b.charCodeAt(0)-96,0 )), 0);
 
 
-//Fix String Case
+//KATA: Fix String Case
 /* In this Kata, you will be given a string that may have mixed uppercase and lowercase letters and your 
 task is to convert that string to either lowercase only or uppercase only based on:
 1. make as few changes as possible.
@@ -134,4 +134,11 @@ function solve(s){
 //replaces the Capitals with '' (=same as removes) and you keep only the lowercase string characters.
 //if this string is smaller then halve the size then you know there are less lower cases and you can make everything Upper.
 const solve = s => s.replace(/[A-Z]/g,'').length < s.length/2 ? s.toUpperCase() : s.toLowerCase()
+
+
+//KATA: Remove Spaces in a string
+function noSpace(x){
+  return x.replace(/\s/g, '');
+}
+
 
