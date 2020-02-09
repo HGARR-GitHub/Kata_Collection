@@ -142,3 +142,38 @@ function noSpace(x){
 }
 
 
+//**********
+//Reverse words in a sentence
+//Take into account, possible multiple spaces between words
+//My solution:
+let sentence = 'Hello   my name is Heriberto'
+let arSentence = []
+
+console.log(sentence)
+
+arSentence = sentence.split(' ')
+for (i=0; i<arSentence.length;i++){
+  arSentence[i] = arSentence[i].split('').reverse().join('')
+}
+console.log(arSentence.join(' '))
+
+//Other Solutions:
+/*
+function reverseWords(str) {
+  // Go for it
+  //split words into seperate arrays
+  return str.split("").reverse().join("").split(" ").reverse().join(" ");
+}
+
+
+function reverseWords(str) {
+  return str.split(' ').map(function(word){
+    return word.split('').reverse().join('');
+  }).join(' ');
+}
+
+var reverseWords=s=>s.replace(/\S+/g,v=>[...v].reverse().join``)
+
+*/
+//********
+
